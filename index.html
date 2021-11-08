@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    
+</head>
+<body>
+    <script>
+        /* Rock Paper Scissors Game 
+Computer chooses betwen rock, paper, scissors randomly */
+    
+const choices = ['rock','paper','scissor'];
+
+
+function game() {
+    /* Play a single round of between player and computer. Ends in 5 rounds which then declares the winner
+    */
+    let playerScore = 0; 
+    let computerScore = 0;
+    const rounds = 5; //Number of Rounds 
+
+    for (let i = 0; i < rounds; i++) { 
+    
+        let playerSelection = prompt("Please choose between rock, paper or scissor to play the game!");
+        /* User prompt to choose between rock paper scissors */
+        playerSelection = playerSelection.toLowerCase(); 
+        //Turns user prompt to lower case
+        function computerPlay() {
+            return(choices)[Math.floor(Math.random()*choices.length)];
+            //Computer chooses between rock, paper and scissor randomly
+        }
+    let computerSelection = computerPlay();
+
+    let round = playRound(playerSelection, computerSelection);
+        if(round === "wins"){
+        playerScore++;
+        console.log("You Win!");
+        } 
+        else if (round === "loses"){
+        computerScore++;
+        console.log("You Lose!");
+        }
+        else if (round === "ties") {
+        console.log("Tie!");
+        }
+    }
+    
+    if (playerScore > computerScore) {
+        console.log("You have won against the computer! With the score of " + playerScore + " : " + computerScore);
+        }
+    else if (computerScore > playerScore) {
+        console.log("You have lost against the computer! With the score of " + playerScore + ":" + computerScore);    
+        }
+    else 
+        console.log("You have tied against the computer! With the score of " + playerScore + ":" + computerScore);    
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === 'rock' && computerSelection === 'paper') {
+            return 'loses';
+        }
+        else if 
+            (playerSelection === 'paper' && computerSelection === 'scissor') {
+            return 'loses';
+        }
+        else if 
+            (playerSelection === 'scissor' && computerSelection === 'rock') {
+            return 'loses';
+        }
+        else if 
+            (playerSelection === 'scissor' && computerSelection === 'paper') {
+            return 'wins';
+        }
+        else if 
+            (playerSelection === 'paper' && computerSelection === 'rock') {
+            return 'wins';
+        }
+        else if 
+            (playerSelection === 'rock' && computerSelection === 'scissor') {
+            return 'wins';
+        }
+        else {
+            return 'ties';
+            /*if both player and computer input same choice the result is a tie. */
+            }
+        }
+        console.log(game());
+
+    </script>
+</body>
+</html>

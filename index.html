@@ -5,90 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    
+    <link rel = "stylesheet" href="style.css">
+    <!-- <script src = "index.js" defer></script> */-->
 </head>
 <body>
-    <script>
-        /* Rock Paper Scissors Game 
-Computer chooses betwen rock, paper, scissors randomly */
-    
-const choices = ['rock','paper','scissor'];
+    <h1>Rock Paper Scissors <br> The GAME</br></h1>
 
+    <p>Pick Your Poison</p>
 
-function game() {
-    /* Play a single round of between player and computer. Ends in 5 rounds which then declares the winner
-    */
-    let playerScore = 0; 
-    let computerScore = 0;
-    const rounds = 5; //Number of Rounds 
+    <h2>First to 5 Wins!</h2>
 
-    for (let i = 0; i < rounds; i++) { 
-    
-        let playerSelection = prompt("Please choose between rock, paper or scissor to play the game!");
-        /* User prompt to choose between rock paper scissors */
-        playerSelection = playerSelection.toLowerCase(); 
-        //Turns user prompt to lower case
-        function computerPlay() {
-            return(choices)[Math.floor(Math.random()*choices.length)];
-            //Computer chooses between rock, paper and scissor randomly
-        }
-    let computerSelection = computerPlay();
+    <div class = "flex-container">
+        <button class="cybr-btn" id ="rockButton">Rock
+            <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
+        </button>
+        <button class="cybr-btn" id = "paperButton">Paper
+            <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
+        </button>   
+        <button class="cybr-btn" id = "scissorsButton">Scissor
+            <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
+        </button>
+    </div>
 
-    let round = playRound(playerSelection, computerSelection);
-        if(round === "wins"){
-        playerScore++;
-        console.log("You Win!");
-        } 
-        else if (round === "loses"){
-        computerScore++;
-        console.log("You Lose!");
-        }
-        else if (round === "ties") {
-        console.log("Tie!");
-        }
-    }
-    
-    if (playerScore > computerScore) {
-        console.log("You have won against the computer! With the score of " + playerScore + " : " + computerScore);
-        }
-    else if (computerScore > playerScore) {
-        console.log("You have lost against the computer! With the score of " + playerScore + ":" + computerScore);    
-        }
-    else 
-        console.log("You have tied against the computer! With the score of " + playerScore + ":" + computerScore);    
-    }
-
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection === 'rock' && computerSelection === 'paper') {
-            return 'loses';
-        }
-        else if 
-            (playerSelection === 'paper' && computerSelection === 'scissor') {
-            return 'loses';
-        }
-        else if 
-            (playerSelection === 'scissor' && computerSelection === 'rock') {
-            return 'loses';
-        }
-        else if 
-            (playerSelection === 'scissor' && computerSelection === 'paper') {
-            return 'wins';
-        }
-        else if 
-            (playerSelection === 'paper' && computerSelection === 'rock') {
-            return 'wins';
-        }
-        else if 
-            (playerSelection === 'rock' && computerSelection === 'scissor') {
-            return 'wins';
-        }
-        else {
-            return 'ties';
-            /*if both player and computer input same choice the result is a tie. */
-            }
-        }
-        console.log(game());
-
-    </script>
-</body>
+    <main class ='main'>
+        <div class = "scoreboard">
+            <h3 class ="score-info" id ="scoreInfo">Score</h3>
+            <div class = "scores-cont">
+                <div class ="score">
+                <p id ="playerScore">Player: 0</p>
+                <i class = "fas hand" id ="playerSign"></i>
+                </div>
+               <div class ="score">
+                    <p id ="computerScore">Computer: 0</p>
+                    <i class = "fas hand" id ="computerSign"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class = "footer">
+        CopyRight (c) 2021 Daffa Ramajaya Design based on Cyberpunk 2077 credit: @jh3y
+    </footer>
+    <div class = "modal" id="endgameModal">
+        <p class="message bold" id = "endgameMSG"></p>
+        <p class="message">Click this button to restart!</p>    
+        <button class = cybr-btn id = "restartBtn">restart</button>
+    </div>
+    <div class = "overlay" id ="overlay"></div>
+        <script src = "index.js"></script>
+    </body>
 </html>
